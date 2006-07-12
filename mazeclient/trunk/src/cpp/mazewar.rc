@@ -1,0 +1,242 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_MAZEWAR MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Connect...",                 IDM_CONNECT, HELP
+        MENUITEM "E&xit",                       IDM_EXIT
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "View All in Top View",        IDM_VIEWALL
+        MENUITEM "&Perspective...",             IDM_PERSPECT
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About ...",                  IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_MAZEWAR ACCELERATORS 
+BEGIN
+    "?",            IDM_ABOUT,              ASCII,  ALT
+    "/",            IDM_ABOUT,              ASCII,  ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 22, 17, 230, 259
+STYLE DS_SETFONT | DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About"
+FONT 8, "System", 0, 0, 0x0
+BEGIN
+    ICON            107,IDC_MYICON,14,9,20,20
+    LTEXT           "MazeWar 2004",IDC_STATIC,49,10,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2004-2006 by Howard Palmer",IDC_STATIC,49,20,175,8
+    DEFPUSHBUTTON   "OK",IDOK,195,6,30,11,WS_GROUP
+    LTEXT           "This program was created for the Vintage Computer Fair, held Nov. 6-7, 2004, at the Computer History Museum in Mountain View, CA.  It is an attempt to reproduce the look and feel of MazeWar, as it was played on Imlac workstations at MIT 30 years ago.",IDC_STATIC,48,46,174,46
+    LTEXT           "Thanks to:",IDC_STATIC,48,94,48,10
+    LTEXT           "Tom Uban for the only known working Imlac and debugging help.",IDC_STATIC,48,107,178,17
+    LTEXT           "Bruce Damer of digibarn.com for his work in capturing the history of Maze, from its beginning at NASA Ames.",IDC_STATIC,48,126,176,16
+    LTEXT           "Ken Harrenstien for bringing back the original ITS MazeWar server with robot opponents.",IDC_STATIC,48,144,168,17
+    LTEXT           "Sellam Ismail and Bruce Damer for organizing the 30 year Maze retrospective at the VCF.",IDC_STATIC,48,163,166,18
+    LTEXT           "Greg Thompson for improvements to the original Ames Maze, and for taking it into the world.",IDC_STATIC,48,183,166,19
+    LTEXT           "Steve Colley for making it happen in the first place.",IDC_STATIC,48,204,166,11
+    LTEXT           "All rights reserved.",IDC_STATIC,49,30,133,10
+    LTEXT           "http://sourceforge.net/projects/imlac",IDC_STATIC,48,217,157,8
+END
+
+IDD_DIALOG1 DIALOG  0, 0, 186, 106
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Enter Perspective Parameters"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,129,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,129,24,50,14
+    LTEXT           "Enter eye distance from viewplane",IDC_STATIC,10,10,109,8
+    EDITTEXT        IDC_FEDIT,15,25,35,12,ES_RIGHT | ES_NUMBER
+    LTEXT           "Enter viewplane distance from first full wall section",IDC_STATIC,10,50,158,8
+    EDITTEXT        IDC_DEDIT,15,65,35,12,ES_RIGHT | ES_NUMBER
+    CONTROL         "Use Imlac WALLS values",IDC_USEIMLAC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,85,97,10
+END
+
+IDD_CONNECT DIALOG  0, 0, 188, 98
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Maze Server Selection"
+FONT 10, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,131,77,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,74,77,50,14
+    LTEXT           "Enter Server Host Name or Address",IDC_STATIC,7,7,113,13
+    EDITTEXT        IDC_SERVERNAME,7,20,115,12,ES_AUTOHSCROLL
+    LTEXT           "TCP Port",IDC_STATIC,132,7,28,8
+    EDITTEXT        IDC_TCPPORT,132,20,23,12,ES_RIGHT | ES_WANTRETURN | ES_NUMBER
+    CONTROL         "Open Telnet Window",IDC_OPT_TELNET,"Button",BS_AUTORADIOBUTTON,14,43,77,10
+    CONTROL         "Just Send Username",IDC_OPT_USERNAME,"Button",BS_AUTORADIOBUTTON,14,53,78,10
+    GROUPBOX        "Choose:",IDC_STATIC,7,36,94,32,WS_GROUP
+    LTEXT           "Username",IDC_STATIC,111,42,37,8
+    EDITTEXT        IDC_USERNAME,111,52,43,12
+END
+
+IDD_NCONNECT DIALOG  0, 0, 188, 97
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Maze Server Connection"
+FONT 10, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,131,76,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,65,76,50,14
+    LTEXT           "Maze Server Hostname or IP Address",IDC_STATIC,7,7,117,8
+    LTEXT           "TCP Port",IDC_STATIC,139,7,42,8
+    COMBOBOX        IDC_PORTBOX,139,20,42,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Server Command Line or Username",IDC_STATIC,7,41,113,9
+    EDITTEXT        IDC_CMDBOX,7,55,174,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_HOSTBOX,7,21,121,36,CBS_DROPDOWN | CBS_AUTOHSCROLL | WS_VSCROLL | WS_TABSTOP
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 99
+    END
+
+    IDD_CONNECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+    END
+
+    IDD_NCONNECT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 181
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 90
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SMALL               ICON                    "small.ico"
+IDI_MAZEWAR             ICON                    "mazewar.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_APP_TITLE           "mazewar"
+    IDS_HELLO               "Hello World!"
+    IDC_MAZEWAR             "MAZEWAR"
+END
+
+STRINGTABLE 
+BEGIN
+    IDM_CONNECT             "Connect to a maze server or server host"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
