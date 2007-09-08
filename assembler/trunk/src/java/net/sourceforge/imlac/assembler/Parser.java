@@ -51,7 +51,7 @@ public class Parser {
 	private final SourceFile src;
 	private final ArrayList<SourceLine> extraSrc = new ArrayList<SourceLine>(256);
 	private final ArrayList<CodeElement> codeList = new ArrayList<CodeElement>(1024);
-	private final ArrayList errorList = new ArrayList(4);
+//	private final ArrayList errorList = new ArrayList(4);
 	private boolean endFlag = false;
 	private Expression endExp = null;
 	
@@ -73,7 +73,7 @@ public class Parser {
 	private int lineNumber;
 	private SourceLine line;
 	private String indirectTag;
-	private final ArrayList oplist = new ArrayList(4);
+	private final ArrayList<Object> oplist = new ArrayList<Object>(4);
 	
 	// Comment state information
 	private boolean slashComments = false;
@@ -181,10 +181,10 @@ public class Parser {
 		int firstExtra = extraSrc.size() + 1;
 		int extraCount = 0;
 		
-		for (Iterator iter = undefinedLiteralTable.values().iterator();
+		for (Iterator<Literal> iter = undefinedLiteralTable.values().iterator();
 			iter.hasNext();
 			) {
-			Literal lit = (Literal) iter.next();
+			Literal lit = iter.next();
 			iter.remove();
 			int saveLocation = location;
 			lineNumber = extraSrc.size() + 1;
@@ -468,12 +468,12 @@ public class Parser {
 	
 	public void generateCode(Object source, int first, int count, boolean showLineNumber) {
 		SourceFile fileSource = null;
-		ArrayList arraySource = null;
+		ArrayList<SourceLine> arraySource = null;
 		int last = first + count;
 		if (source instanceof SourceFile) {
 			fileSource = (SourceFile) source;
 		} else if (source instanceof ArrayList) {
-			arraySource = (ArrayList) source;
+			arraySource = (ArrayList<SourceLine>)source;
 		} else {
 			throw new RuntimeException("invalid source type in generateCode()");
 		}

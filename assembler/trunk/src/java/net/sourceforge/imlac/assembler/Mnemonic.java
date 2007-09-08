@@ -37,7 +37,7 @@ public abstract class Mnemonic {
 	private final String name;
 	
 	public static void init() {
-		@SuppressWarnings("unused") Class c;
+		@SuppressWarnings("unused") Class<?> c;
 		// Reference these subclasses so that they build their mnemonics
 		c = DisplayOperateInstruction.class;
 		c = DisplayOrder.class;
