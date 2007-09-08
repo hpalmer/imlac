@@ -238,10 +238,10 @@ public class Server extends Thread {
 				break;
 			} 
 			if (readyCount > 0) {
-				Set readyKeys = selector.selectedKeys();
-				Iterator iter = readyKeys.iterator();
+				Set<SelectionKey> readyKeys = selector.selectedKeys();
+				Iterator<SelectionKey> iter = readyKeys.iterator();
 				while (iter.hasNext()) {
-					SelectionKey key = (SelectionKey) iter.next();
+					SelectionKey key = iter.next();
 					iter.remove();
 					SelectableChannel c = key.channel();
 					if (c.equals(listenChannel)) {
