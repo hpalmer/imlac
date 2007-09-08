@@ -40,9 +40,9 @@ public class CommTest {
 
 	public static void main(String[] args) {
 		SerialPort sport = null;
-		Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+		Enumeration<CommPortIdentifier> ports = (Enumeration<CommPortIdentifier>)CommPortIdentifier.getPortIdentifiers();
 		while (ports.hasMoreElements()) {
-			CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
+			CommPortIdentifier port = ports.nextElement();
 			String portType = "";
 			int ptype = port.getPortType();
 			if (ptype == CommPortIdentifier.PORT_SERIAL) {
