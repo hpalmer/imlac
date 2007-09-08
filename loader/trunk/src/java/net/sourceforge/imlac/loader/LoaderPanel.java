@@ -418,7 +418,7 @@ public class LoaderPanel extends JPanel implements ActionListener {
 	}
 	
 	public static void largerFonts(float scale) {
-		Enumeration keys = UIManager.getDefaults().keys();
+		Enumeration<Object> keys = (Enumeration<Object>)UIManager.getDefaults().keys();
 		while (keys.hasMoreElements()) {
 			Object key = keys.nextElement();
 			Object value = UIManager.get (key);

@@ -160,9 +160,9 @@ public class SerialPortPanel extends JPanel implements ActionListener {
 	}
 	
 	private void buildPanel() {
-		Enumeration portList = CommPortIdentifier.getPortIdentifiers();
+		Enumeration<CommPortIdentifier> portList = (Enumeration<CommPortIdentifier>)CommPortIdentifier.getPortIdentifiers();
 		while (portList.hasMoreElements()) {
-			CommPortIdentifier port = (CommPortIdentifier) portList.nextElement();
+			CommPortIdentifier port = portList.nextElement();
 			if (port.getPortType() == CommPortIdentifier.PORT_SERIAL) {
 				portIdentifiers.add(port);
 			}
@@ -170,7 +170,7 @@ public class SerialPortPanel extends JPanel implements ActionListener {
 		
 		portNames = new String[portIdentifiers.size()];
 		for (int i = 0; i < portNames.length; ++i) {
-			CommPortIdentifier port = (CommPortIdentifier) portIdentifiers.get(i);
+			CommPortIdentifier port = portIdentifiers.get(i);
 			portNames[i] = port.getName();
 		}
 		
@@ -401,7 +401,7 @@ public class SerialPortPanel extends JPanel implements ActionListener {
 				selectedPort = null;
 			}
 			if (i >= 0) {
-				CommPortIdentifier portId = (CommPortIdentifier) portIdentifiers.get(i);
+				CommPortIdentifier portId = portIdentifiers.get(i);
 				selectedPort = openPort(portId);
 				if (selectedPort == null) {
 					portSelector.setSelectedIndex(-1);
