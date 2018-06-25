@@ -17,6 +17,7 @@
  */
 
 #include "stdafx.h"
+#include "stdio.h"
 #include "resource.h"
 
 static const int DEFAULT_SERVER_PORT = 8082;

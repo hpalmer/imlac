@@ -17,6 +17,7 @@
  */
 
 #include "stdafx.h"
+#include "stdio.h"
 
 static const UINT imlacWalls[] = {
 	511,
